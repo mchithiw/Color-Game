@@ -1,0 +1,35 @@
+<div ng-style="{'background-color' : backgroundColor}" class="main-page">
+    
+    <header class="header"> 
+            
+        <h3 class="title"> How Quick Can You Think? </h3>
+            
+        <p class="score"> Correct: {{score}}. Time Elapsed: {{seconds}}.</p>
+            
+    </header>
+    
+    <div ng-hide="playing" class="start-menu">
+        <h4> Instructions </h4>
+        
+        <p> Click on the button whose text matches the color of the page's background.</p>
+        
+        <p> Your score is based on the number of correct responses and how quickly you answer.</p>
+        
+        <p> 3 Strikes and the game is over!</p>
+        
+        <button class="button play-button" ng-click="startGame()"> Play Game </button>
+    </div>
+    
+    <div ng-show="playing" class="game-container">
+        
+        <button ng-style="{'color' : buttonTwo}" ng-click="answer(buttonOne)" class="button game-button"> {{buttonOne}} </button>
+        
+        <button ng-style="{'color' : buttonOne}" ng-click="answer(buttonTwo)" class="button game-button"> {{buttonTwo}} </button>
+        
+        <p class="result"></p>
+        <p class="strikes"> Strikes: {{strikes}}</p>
+        
+    </div>
+
+    
+</div>
