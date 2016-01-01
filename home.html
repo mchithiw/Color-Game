@@ -1,35 +1,45 @@
-<div ng-style="{'background-color' : backgroundColor}" class="main-page">
-    
-    <header class="header"> 
+    <div ng-style="{'background-color' : backgroundColor}" class="game-background">
+        
+        <div ng-hide="playing || gameOver" class="start-menu">
             
-        <h3 class="title"> How Quick Can You Think? </h3>
-            
-        <p class="score"> Correct: {{score}}. Time Elapsed: {{seconds}}.</p>
-            
-    </header>
-    
-    <div ng-hide="playing" class="start-menu">
-        <h4> Instructions </h4>
-        
-        <p> Click on the button whose text matches the color of the page's background.</p>
-        
-        <p> Your score is based on the number of correct responses and how quickly you answer.</p>
-        
-        <p> 3 Strikes and the game is over!</p>
-        
-        <button class="button play-button" ng-click="startGame()"> Play Game </button>
-    </div>
-    
-    <div ng-show="playing" class="game-container">
-        
-        <button ng-style="{'color' : buttonTwo}" ng-click="answer(buttonOne)" class="button game-button"> {{buttonOne}} </button>
-        
-        <button ng-style="{'color' : buttonOne}" ng-click="answer(buttonTwo)" class="button game-button"> {{buttonTwo}} </button>
-        
-        <p class="result"></p>
-        <p class="strikes"> Strikes: {{strikes}}</p>
-        
-    </div>
+            <h3 class="title"> How Quick Can You Think? </h3>
 
+            <p> Click on the button which has the same name as the page's background color. </p>
+
+            <p> Your score is based on the number of correct responses and how quickly you answer.</p>
+
+            <p> 3 Strikes and the game is over!</p>
+
+            <button class="button play-button" ng-click="startGame()"> Play Game </button>
+        </div>
     
-</div>
+        <div ng-show="playing" class="game-container">
+            
+            <h4 class="time"> Time Elapsed: {{seconds}} seconds </h4>
+
+            <button ng-style="{'background-color' : buttonOneColor}" ng-click="answer(buttonOne)" class="button game-button"> {{buttonOne}} </button>
+
+            <button ng-style="{'background-color' : buttonTwoColor}" ng-click="answer(buttonTwo)" class="button game-button"> {{buttonTwo}} </button>
+
+            <p class="strikes">Strikes: {{strikes}}</p>
+            
+            <p class="score"> Correct: {{score}}</p>
+
+        </div>
+        
+        
+        <div ng-if="gameOver" ng-hide="playing" class="start-menu">
+            <h3 class="title"> How Quick Can You Think? </h3>
+            
+            <h3 class="final-score" ng-show="finalScore !== 0"> Score: {{finalScore}} </h3>
+            
+            <p class="final-score-info"> Correct Responses: {{score}} </p>
+            
+            <p class="final-score-info"> Time Elapsed: {{seconds}} seconds</p>
+            
+            
+            <button class="button play-button" ng-click="startGame()"> Play Again </button>
+            
+        </div>
+        
+    </div>
