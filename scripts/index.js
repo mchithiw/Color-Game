@@ -25,7 +25,7 @@ app.controller("homeController", function($scope, $location, $http, $interval) {
     $scope.finalScore = 0;
     $scope.gameOver = false;
 
-    $scope.backgroundColors = ['green', 'red', 'yellow', 'silver', 'brown', 'purple', 'pink', 'orange', 'white', 'gold', 'maroon'];
+    $scope.backgroundColors = ['green', 'red', 'yellow', 'gray', 'purple', 'orange', 'white', 'cyan'];
     
     $scope.startGame = function() {
         
