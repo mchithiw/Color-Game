@@ -1,4 +1,4 @@
-    <div ng-style="{'background-color' : backgroundColor}" class="game-background">
+<div ng-style="{'background-color' : backgroundColor}" class="game-background">
         
         <div ng-hide="playing || gameOver" class="start-menu">
             
@@ -6,9 +6,9 @@
 
             <p> Click on the button which has the same name as the page's background color. </p>
 
-            <p> In this mode, your score is based on the number of correct responses and how quickly you answer.</p>
-
-            <p> 3 Strikes and the game is over!</p>
+            <p> In timed mode, your score is based on how many correct responses you give in 60 seconds. </p>
+            
+            <p> You also lose points for incorrect responses, so think carefully! </p>
 
             <button class="button play-button" ng-click="startGame()"> Play Game </button>
             
@@ -18,15 +18,15 @@
     
         <div ng-show="playing" class="game-container">
             
-            <h4 class="time"> Time Elapsed: {{seconds}} seconds </h4>
+            <h4 class="time"> Time Remaining: {{60 - seconds}} seconds </h4>
 
             <button ng-style="{'background-color' : buttonOneColor}" ng-click="answer(buttonOne)" class="button game-button"> {{buttonOne}} </button>
 
             <button ng-style="{'background-color' : buttonTwoColor}" ng-click="answer(buttonTwo)" class="button game-button"> {{buttonTwo}} </button>
-
-            <p class="strikes">Strikes: {{strikes}}</p>
             
             <p class="score"> Correct: {{score}}</p>
+            
+            <p class="strikes">Incorrect: {{strikes}}</p>
 
         </div>
         
@@ -38,7 +38,7 @@
             
             <p class="final-score-info"> Correct Responses: {{score}} </p>
             
-            <p class="final-score-info"> Time Elapsed: {{seconds}} seconds</p>
+            <p class="final-score-info"> Incorrect Responses: {{strikes}} </p>
             
             
             <button class="button play-button" ng-click="startGame()"> Play Again </button>
